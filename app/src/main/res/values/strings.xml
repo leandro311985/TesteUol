@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pontos Wifi</string>
+    <string name="txtWifi">Wifi</string>
+    <string name="sample_show_log">Show Log</string>
+    <string name="title_activity_maps">Minha Localização</string>
+    <string name="title_button">Carregando...</string>
+
+
+
+</resources>

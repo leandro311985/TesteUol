@@ -1,0 +1,29 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".view.SplashActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens100dp"
+        android:gravity="top|center_horizontal"
+        android:text="@string/title_button"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimens50dp" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageId"
+        android:layout_width="@dimen/dimens220dp"
+        android:layout_height="@dimen/dimens220dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@drawable/ic_wifi_black_24dp" />
+
+
+
+
+</FrameLayout>
