@@ -16,7 +16,6 @@ class SplashActivity : AppCompatActivity() {
         private lateinit var rocketAnimation: AnimationDrawable
     }
 
-
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
             openActivity<MainActivity> {  }

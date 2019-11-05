@@ -19,7 +19,6 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
     GoogleMap.OnMyLocationClickListener,
     OnMapReadyCallback {
 
-
     private var points: Points? = null
     private lateinit var lastLocation: Location
     private lateinit var mMap: GoogleMap
@@ -27,7 +26,6 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-
 
 
         if (intent != null) {
@@ -38,20 +36,17 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-
     }
 
     override fun onMapReady(map: GoogleMap) {
         mMap = map
+        setUpMap()
         mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-
         mMap.isTrafficEnabled = false
         mMap.isIndoorEnabled = false
         mMap.isBuildingsEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
-
-        setUpMap()
         mMap.isMyLocationEnabled = true
         mMap.setOnMyLocationButtonClickListener(this)
         mMap.setOnMyLocationClickListener(this)
@@ -60,12 +55,8 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
                 MarkerOptions()
                     .position(LatLng(it.Latitude.toDouble(), it.Longitude.toDouble()))
                     .title(it.Descricao)
-
-
             )
         }
-
-
     }
 
     private fun setUpMap() {
@@ -81,15 +72,13 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
         }
     }
 
-
-
     override fun onMyLocationClick(location: Location) {
         location.latitude
-        showToast("localização atual:\n$location")
+        showToast(getString(R.string.location).plus(location.latitude.plus(location.longitude)))
     }
 
     override fun onMyLocationButtonClick(): Boolean {
-        showToast("Recentralizando")
+        showToast(getString(R.string.recentraliza))
 
         return false
     }
