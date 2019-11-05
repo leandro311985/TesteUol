@@ -1,7 +1,7 @@
 TesteUol
-app Android kotlin
-aplicação do padrão de arquitetura Model-View-Presenter (MVP)
-exibendo assim uma lista de rede WIFI mais proximo do usuario
-usando uma lista di RecicleView
+App Android kotlin
+aplicação no padrão de arquitetura Model-View-Presenter (MVP)
+exibindo assim uma lista de rede WIFI , mais proximo do Usuario
+usando uma lista de RecyclerView
 com dados mocados JSON
 E EXIBINDO A POSIÇÃO ATUAL DO USUARIO
