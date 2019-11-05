@@ -11,6 +11,7 @@ import com.example.myUol.model.Points
 import kotlinx.android.synthetic.main.activity_main.*
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.animation.ValueAnimator
 import androidx.core.app.ActivityCompat
 import android.location.LocationManager
 import android.location.Location
@@ -23,10 +24,12 @@ import android.widget.Button
 import com.example.myUol.presenter.*
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
+import kotlinx.android.synthetic.main.text_row_item.*
 
 class MainActivity : AppCompatActivity(), Constant {
 
     private lateinit var presenter: MainPresenter
+    private var mDelayHandler: Handler? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,8 +40,8 @@ class MainActivity : AppCompatActivity(), Constant {
         rv_list.layoutManager = LinearLayoutManager(this)
         permission()
 
-
     }
+
 
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
@@ -68,6 +71,7 @@ class MainActivity : AppCompatActivity(), Constant {
 
     override fun setItems(items: List<Points>) {
         rv_list.adapter = MainAdapter(items, presenter::onItemClicked)
+
     }
 
     override fun showMessage(message: Points) {
@@ -98,7 +102,6 @@ class MainActivity : AppCompatActivity(), Constant {
         }
 
     }
-
 
     fun permission() {
         if (ContextCompat.checkSelfPermission(
@@ -157,7 +160,8 @@ class MainActivity : AppCompatActivity(), Constant {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUESTCODE) {
             if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                getLastBestLocation()?.let { presenter.onResume(it) }
+                getLastBestLocation()?.let {
+                    presenter.onResume(it) }
             }
         }
     }
@@ -167,7 +171,6 @@ class MainActivity : AppCompatActivity(), Constant {
         private const val REQUESTCODE = 124
         private const val DELAY: Long = 3000
         const val POINT: String = "POINT"
-        private var mDelayHandler: Handler? = null
         private const val SPLASHDELAY: Long = 4000
 
     }

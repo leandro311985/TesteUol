@@ -26,7 +26,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
          imageId.apply {
             setBackgroundResource(R.drawable.animation)
             rocketAnimation = background as AnimationDrawable
@@ -42,11 +41,9 @@ class SplashActivity : AppCompatActivity() {
     }
 
     public override fun onDestroy() {
-
         if (mDelayHandler != null) {
             mDelayHandler!!.removeCallbacks(mRunnable)
         }
-
         super.onDestroy()
     }
 }

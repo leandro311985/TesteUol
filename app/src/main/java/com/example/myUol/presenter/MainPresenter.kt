@@ -32,6 +32,7 @@ class MainPresenter(
     fun onDestroy() {
         mainView = null
     }
+
 }
 
 
