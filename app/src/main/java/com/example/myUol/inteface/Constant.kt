@@ -1,6 +1,6 @@
-package com.example.myuol.inteface
+package com.example.myUol.inteface
 
-import com.example.myuol.model.Points
+import com.example.myUol.model.Points
 
 interface Constant {
 

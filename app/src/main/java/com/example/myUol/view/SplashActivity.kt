@@ -1,15 +1,11 @@
-package com.example.myuol.view
+package com.example.myUol.view
 
 import android.graphics.drawable.AnimationDrawable
-import android.os.Build
-import android.os.Build.VERSION
-import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.os.Handler
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myuol.R
-import com.example.myuol.presenter.openActivity
+import com.example.myUol.R
+import com.example.myUol.presenter.openActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
@@ -23,17 +19,14 @@ class SplashActivity : AppCompatActivity() {
 
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
-
             openActivity<MainActivity> {  }
             finish()
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        
 
          imageId.apply {
             setBackgroundResource(R.drawable.animation)

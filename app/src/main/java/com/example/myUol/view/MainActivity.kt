@@ -1,13 +1,13 @@
-package com.example.myuol.view
+package com.example.myUol.view
 
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myuol.R
-import com.example.myuol.inteface.Constant
-import com.example.myuol.model.Points
+import com.example.myUol.R
+import com.example.myUol.inteface.Constant
+import com.example.myUol.model.Points
 import kotlinx.android.synthetic.main.activity_main.*
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -20,7 +20,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Handler
 import android.widget.Button
-import com.example.myuol.presenter.*
+import com.example.myUol.presenter.*
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
 
@@ -36,11 +36,18 @@ class MainActivity : AppCompatActivity(), Constant {
         showProgressRight(button = btnMaps)
         rv_list.layoutManager = LinearLayoutManager(this)
         permission()
+
+
     }
 
-    override fun onResume() {
-        super.onResume()
+    private val mRunnable: Runnable = Runnable {
+        if (!isFinishing) {
+            openActivity<MapsActivity> { }
+        }
+    }
 
+    override fun onPostResume() {
+        super.onPostResume()
     }
 
     override fun onDestroy() {
@@ -81,7 +88,13 @@ class MainActivity : AppCompatActivity(), Constant {
                 button.isEnabled = true
                 button.hideProgress(R.string.title_activity_maps)
             }, DELAY)
-            openActivity<MapsActivity> { }
+
+            mDelayHandler = Handler()
+            mDelayHandler!!.postDelayed(
+                mRunnable,
+                SPLASHDELAY
+            )
+
         }
 
     }
@@ -105,7 +118,9 @@ class MainActivity : AppCompatActivity(), Constant {
                 REQUESTCODE
             )
         } else {
-            getLastBestLocation()?.let { presenter.onResume(it) }
+            getLastBestLocation()?.let {
+                presenter.onResume(it)
+            }
         }
     }
 
@@ -148,9 +163,12 @@ class MainActivity : AppCompatActivity(), Constant {
     }
 
     companion object {
+
         private const val REQUESTCODE = 124
         private const val DELAY: Long = 3000
         const val POINT: String = "POINT"
+        private var mDelayHandler: Handler? = null
+        private const val SPLASHDELAY: Long = 4000
 
     }
 

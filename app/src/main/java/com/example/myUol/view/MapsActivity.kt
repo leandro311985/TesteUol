@@ -1,25 +1,19 @@
-package com.example.myuol.view
+package com.example.myUol.view
 
 import android.location.Location
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myuol.R
+import com.example.myUol.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import android.R.attr.defaultValue
-import android.util.Log
-import com.example.myuol.model.Points
-import com.example.myuol.presenter.showToast
-import com.example.myuol.view.MainActivity.Companion.POINT
+import com.example.myUol.model.Points
+import com.example.myUol.presenter.showToast
+import com.example.myUol.view.MainActivity.Companion.POINT
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.model.Marker
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListener,
     GoogleMap.OnMyLocationClickListener,

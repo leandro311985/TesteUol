@@ -1,4 +1,4 @@
-package com.example.myuol.model
+package com.example.myUol.model
 
 import android.os.Parcel
 import android.os.Parcelable

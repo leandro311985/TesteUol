@@ -1,8 +1,9 @@
-package com.example.myuol.presenter
+package com.example.myUol.presenter
 
 import android.content.Context
 import android.location.Location
-import com.example.myuol.model.Points
+import com.example.myUol.inteface.FileJson
+import com.example.myUol.model.Points
 import com.google.gson.Gson
 import java.io.IOException
 import java.util.*
@@ -21,7 +22,7 @@ class ItemsInteractor {
         var points: List<Points>? = null
         try {
 
-            val stream = context.assets.open("pontostest.json")
+            val stream = context.assets.open(FileJson.JSONTEST)
 
             val size = stream.available()
             val buffer = ByteArray(size)

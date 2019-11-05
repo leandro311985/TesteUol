@@ -1,9 +1,9 @@
-package com.example.myuol.presenter
+package com.example.myUol.presenter
 
 import android.content.Context
 import android.location.Location
-import com.example.myuol.inteface.Constant
-import com.example.myuol.model.Points
+import com.example.myUol.inteface.Constant
+import com.example.myUol.model.Points
 
 class MainPresenter(
     private var mainView: Constant?,
