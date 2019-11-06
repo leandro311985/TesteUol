@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myUol.R
-import com.example.myUol.presenter.ShowSnackBar
-import com.example.myUol.presenter.config
+import com.example.myUol.presenter.showSnackBar
 import com.example.myUol.presenter.openActivity
 import com.example.myUol.presenter.schedule
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_splash.*
 import java.util.concurrent.Executors
 
@@ -58,10 +56,10 @@ class SplashActivity : AppCompatActivity() {
         val scheduledExecutor = Executors.newScheduledThreadPool(1)
         try {
             scheduledExecutor.schedule(1000) {
-                ShowSnackBar(txt,"Estamos Preparando uma lista de rede wifi para voçê...")
+                showSnackBar(txt,getString(R.string.txt_splash))
             }
             scheduledExecutor.schedule(3000) {
-                ShowSnackBar(txt,"Só Mais Um Pouquinho!")
+                showSnackBar(txt,getString(R.string.txt_splash_ss))
             }
         } finally {
             scheduledExecutor.shutdown()

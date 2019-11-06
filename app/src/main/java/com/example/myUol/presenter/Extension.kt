@@ -12,11 +12,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import androidx.fragment.app.Fragment
 import com.example.myUol.R
 import com.example.myUol.R.color.colorWhite
 import com.google.android.material.snackbar.Snackbar
-import java.util.*
 import java.util.concurrent.Executors.callable
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.ScheduledFuture
@@ -61,14 +59,12 @@ fun Snackbar.config(context: Context){
     val params = this.view.layoutParams as ViewGroup.MarginLayoutParams
     params.setMargins(12, 20, 12, 20)
     this.view.layoutParams = params
-
     this.view.background = ContextCompat.getDrawable(context, R.drawable.snack_bottom)
-
     ViewCompat.setElevation(this.view, 20f)
 }
 
 @SuppressLint("ResourceAsColor")
-fun Context.ShowSnackBar(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_LONG){
+fun Context.showSnackBar(view: View, text: CharSequence, duration: Int = Snackbar.LENGTH_LONG){
     val snack = Snackbar.make(view,text, duration)
     snack.setActionTextColor(colorWhite)
     snack.config(this)

@@ -11,14 +11,12 @@ import com.example.myUol.model.Points
 import kotlinx.android.synthetic.main.activity_main.*
 import android.Manifest.permission.ACCESS_COARSE_LOCATION
 import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.animation.ValueAnimator
 import androidx.core.app.ActivityCompat
 import android.location.LocationManager
 import android.location.Location
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Build
 import android.os.Handler
 import android.widget.Button
@@ -26,9 +24,6 @@ import androidx.annotation.RequiresApi
 import com.example.myUol.presenter.*
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_splash.*
-import kotlinx.android.synthetic.main.text_row_item.*
 
 class MainActivity : AppCompatActivity(), Constant {
 
@@ -43,7 +38,7 @@ class MainActivity : AppCompatActivity(), Constant {
         showProgressRight(button = btnMaps)
         rv_list.layoutManager = LinearLayoutManager(this)
         permission()
-        ShowSnackBar(rv_list,"Prontinho, tudo certo!")
+        showSnackBar(rv_list,getString(R.string.txt_snack))
 
     }
 
@@ -81,7 +76,7 @@ class MainActivity : AppCompatActivity(), Constant {
     }
 
     override fun showMessage(message: Points) {
-        ShowSnackBar(conteiner,message.Descricao)
+        showSnackBar(conteiner,message.Descricao)
         val intent = Intent(this, MapsActivity::class.java)
         intent.putExtra(POINT, message)
         startActivity(intent)
@@ -169,7 +164,7 @@ class MainActivity : AppCompatActivity(), Constant {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastBestLocation()?.let {
                     presenter.onResume(it) }
-                ShowSnackBar(rv_list,"Obrigado por Aceitar os termos!")
+                showSnackBar(rv_list,getString(R.string.txt_permission))
             }
         }
     }

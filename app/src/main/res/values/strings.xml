@@ -4,7 +4,11 @@
     <string name="location">localização atual:</string>
     <string name="recentraliza">Recentralizando..</string>
     <string name="title_activity_maps">Minha Localização</string>
+    <string name="txt_snack">Prontinho, tudo certo!</string>
+    <string name="txt_permission">Obrigado por Aceitar os termos!</string>
+    <string name="txt_splash">Estamos Preparando uma lista de rede wifi para voçê...</string>
     <string name="title_button">Carregando...</string>
+    <string name="txt_splash_ss">Só Mais Um Pouquinho!</string>
 
 
 

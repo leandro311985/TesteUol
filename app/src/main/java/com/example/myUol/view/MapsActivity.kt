@@ -11,8 +11,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.myUol.model.Points
-import com.example.myUol.presenter.ShowSnackBar
-import com.example.myUol.presenter.showToast
+import com.example.myUol.presenter.showSnackBar
 import com.example.myUol.view.MainActivity.Companion.POINT
 import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.activity_maps.*
@@ -77,11 +76,11 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
 
     override fun onMyLocationClick(location: Location) {
         location.latitude
-        ShowSnackBar(map.requireView(),getString(R.string.location).plus(location.latitude.plus(location.longitude)))
+        showSnackBar(map.requireView(),getString(R.string.location).plus(location.latitude.plus(location.longitude)))
     }
 
     override fun onMyLocationButtonClick(): Boolean {
-        ShowSnackBar(map.requireView(),getString(R.string.recentraliza))
+        showSnackBar(map.requireView(),getString(R.string.recentraliza))
 
         return false
     }
