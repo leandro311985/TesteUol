@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity(), Constant {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUESTCODE) {
-            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastBestLocation()?.let {
                     presenter.onResume(it) }
             }
