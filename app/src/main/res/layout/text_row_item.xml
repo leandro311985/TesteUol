@@ -6,8 +6,8 @@
     android:layout_height="@dimen/dimens100dp"
     android:id="@+id/itemClick"
     android:background="@drawable/custom_layout"
-    android:layout_marginLeft="@dimen/margin_medium"
-    android:layout_marginRight="@dimen/margin_medium"
+    android:layout_marginLeft="@dimen/dimens16dp"
+    android:layout_marginRight="@dimen/dimens16dp"
     android:layout_marginTop="@dimen/dimens16dp"
     android:gravity="center_vertical">
 

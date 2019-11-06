@@ -3,6 +3,7 @@
     <dimen name="dimens0dp">0dp</dimen>
     <dimen name="dimens3dp">3dp</dimen>
     <dimen name="dimens4dp">4dp</dimen>
+    <dimen name="dimens6dp">6dp</dimen>
     <dimen name="dimens10dp">10dp</dimen>
     <dimen name="dimens8dp">8dp</dimen>
     <dimen name="dimens16dp">16dp</dimen>
@@ -21,19 +22,11 @@
     <dimen name="dimens160dp">160dp</dimen>
     <dimen name="dimens180dp">180dp</dimen>
     <dimen name="dimens220dp">220dp</dimen>
-    <dimen name="margin_tiny">4dp</dimen>
-    <dimen name="margin_small">8dp</dimen>
-    <dimen name="margin_medium">16dp</dimen>
-    <dimen name="margin_large">32dp</dimen>
-    <dimen name="margin_huge">64dp</dimen>
+
 
     <dimen name="dimens130dp">130dp</dimen>
     <dimen name="dimens280dp">280dp</dimen>
 
-    <!-- Semantic definitions -->
-
-    <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
-    <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
 
 
 </resources>

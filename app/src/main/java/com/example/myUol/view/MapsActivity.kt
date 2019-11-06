@@ -11,9 +11,11 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.myUol.model.Points
+import com.example.myUol.presenter.ShowSnackBar
 import com.example.myUol.presenter.showToast
 import com.example.myUol.view.MainActivity.Companion.POINT
 import com.google.android.gms.location.LocationServices
+import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListener,
     GoogleMap.OnMyLocationClickListener,
@@ -55,12 +57,13 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
                 MarkerOptions()
                     .position(LatLng(it.Latitude.toDouble(), it.Longitude.toDouble()))
                     .title(it.Descricao)
+
             )
         }
     }
 
     private fun setUpMap() {
-        var fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mMap.isMyLocationEnabled = true
         fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
 
@@ -74,11 +77,11 @@ class MapsActivity : AppCompatActivity(), GoogleMap.OnMyLocationButtonClickListe
 
     override fun onMyLocationClick(location: Location) {
         location.latitude
-        showToast(getString(R.string.location).plus(location.latitude.plus(location.longitude)))
+        ShowSnackBar(map.requireView(),getString(R.string.location).plus(location.latitude.plus(location.longitude)))
     }
 
     override fun onMyLocationButtonClick(): Boolean {
-        showToast(getString(R.string.recentraliza))
+        ShowSnackBar(map.requireView(),getString(R.string.recentraliza))
 
         return false
     }

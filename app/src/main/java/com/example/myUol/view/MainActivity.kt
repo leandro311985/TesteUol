@@ -19,11 +19,15 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import android.os.Handler
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import com.example.myUol.presenter.*
 import com.github.razir.progressbutton.hideProgress
 import com.github.razir.progressbutton.showProgress
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.android.synthetic.main.text_row_item.*
 
 class MainActivity : AppCompatActivity(), Constant {
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity(), Constant {
     private lateinit var presenter: MainPresenter
     private var mDelayHandler: Handler? = null
 
-
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,6 +43,7 @@ class MainActivity : AppCompatActivity(), Constant {
         showProgressRight(button = btnMaps)
         rv_list.layoutManager = LinearLayoutManager(this)
         permission()
+        ShowSnackBar(rv_list,"Prontinho, tudo certo!")
 
     }
 
@@ -46,11 +51,12 @@ class MainActivity : AppCompatActivity(), Constant {
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
             openActivity<MapsActivity> { }
+
         }
     }
 
-    override fun onPostResume() {
-        super.onPostResume()
+    override fun onResume() {
+        super.onResume()
     }
 
     override fun onDestroy() {
@@ -75,17 +81,18 @@ class MainActivity : AppCompatActivity(), Constant {
     }
 
     override fun showMessage(message: Points) {
-        showToast(message.Descricao)
+        ShowSnackBar(conteiner,message.Descricao)
         val intent = Intent(this, MapsActivity::class.java)
         intent.putExtra(POINT, message)
         startActivity(intent)
     }
 
+
     private fun showProgressRight(button: Button) {
         btnMaps.setOnClickListener {
             btnMaps.showProgress {
                 buttonTextRes = R.string.title_button
-                progressColor = Color.WHITE
+                progressColor = (R.color.colorAccent)
             }
             button.isEnabled = false
             Handler().postDelayed({
@@ -159,9 +166,10 @@ class MainActivity : AppCompatActivity(), Constant {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUESTCODE) {
-            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastBestLocation()?.let {
                     presenter.onResume(it) }
+                ShowSnackBar(rv_list,"Obrigado por Aceitar os termos!")
             }
         }
     }
