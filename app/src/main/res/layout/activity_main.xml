@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/conteiner"
-    android:background="@color/colorApp"
+    android:background="@drawable/fundo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
@@ -13,7 +13,7 @@
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/dimens100dp"/>
+        android:layout_marginBottom="@dimen/dimens80dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMaps"
@@ -21,7 +21,7 @@
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:layout_margin="@dimen/dimens16dp"
         android:text="@string/title_activity_maps"
         app:layout_constraintBottom_toBottomOf="parent"

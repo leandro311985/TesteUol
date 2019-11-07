@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Pontos Wifi</string>
-    <string name="txtWifi">Wifi</string>
+    <string name="txtWifi">Rede Wifi</string>
     <string name="location">localização atual:</string>
     <string name="recentraliza">Recentralizando..</string>
     <string name="title_activity_maps">Minha Localização</string>
@@ -9,6 +9,28 @@
     <string name="txt_splash">Estamos Preparando uma lista de rede wifi para voçê...</string>
     <string name="title_button">Carregando...</string>
     <string name="txt_splash_ss">Só Mais Um Pouquinho!</string>
+
+    <!-- Polylines Demo -->
+    <string name="alpha">Alpha</string>
+    <string name="cap_butt">Butt</string>
+    <string name="cap_image">Image</string>
+    <string name="cap_round">Volta</string>
+    <string name="cap_square">Quadrado</string>
+    <string name="end_cap">tampa final</string>
+    <string name="hue">matiz</string>
+    <string name="joint_type">tipo de junta</string>
+    <string name="pattern">Pattern</string>
+    <string name="polyline_demo_description">Demonstra como adicionar polilinhas a um mapa</string>
+    <string name="polyline_demo_label">Polyline</string>
+    <string name="start_cap">Start Cap</string>
+    <string name="width">Largura</string>
+    <string name="joint_type_bevel">Bevel</string>
+    <string name="joint_type_default">Default</string>
+    <string name="joint_type_round">Round</string>
+    <string name="pattern_dashed">Dashed</string>
+    <string name="pattern_dotted">Dotted</string>
+    <string name="pattern_mixed">Mixed</string>
+    <string name="pattern_solid">Solid</string>
 
 
 

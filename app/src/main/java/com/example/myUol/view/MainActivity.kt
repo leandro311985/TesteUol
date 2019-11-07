@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity(), Constant {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.title = getString(R.string.txtWifi)
         presenter = MainPresenter(this, ItemsInteractor(), this)
         showProgressRight(button = btnMaps)
         rv_list.layoutManager = LinearLayoutManager(this)
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity(), Constant {
     override fun showMessage(message: Points) {
         showSnackBar(conteiner,message.Descricao)
         val intent = Intent(this, MapsActivity::class.java)
-        intent.putExtra(POINT, message)
+        intent.putExtra(Constant.POINT, message)
         startActivity(intent)
     }
 
@@ -87,18 +88,18 @@ class MainActivity : AppCompatActivity(), Constant {
         btnMaps.setOnClickListener {
             btnMaps.showProgress {
                 buttonTextRes = R.string.title_button
-                progressColor = (R.color.colorAccent)
+                progressColor = (R.color.colorWhite)
             }
             button.isEnabled = false
             Handler().postDelayed({
                 button.isEnabled = true
                 button.hideProgress(R.string.title_activity_maps)
-            }, DELAY)
+            }, Constant.DELAY)
 
             mDelayHandler = Handler()
             mDelayHandler!!.postDelayed(
                 mRunnable,
-                SPLASHDELAY
+                Constant.SPLASHDELAY
             )
 
         }
@@ -120,7 +121,7 @@ class MainActivity : AppCompatActivity(), Constant {
                     ACCESS_FINE_LOCATION,
                     ACCESS_COARSE_LOCATION
                 ),
-                REQUESTCODE
+                Constant.REQUESTCODE
             )
         } else {
             getLastBestLocation()?.let {
@@ -160,7 +161,7 @@ class MainActivity : AppCompatActivity(), Constant {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUESTCODE) {
+        if (requestCode == Constant.REQUESTCODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLastBestLocation()?.let {
                     presenter.onResume(it) }
@@ -169,14 +170,6 @@ class MainActivity : AppCompatActivity(), Constant {
         }
     }
 
-    companion object {
-
-        private const val REQUESTCODE = 124
-        private const val DELAY: Long = 3000
-        const val POINT: String = "POINT"
-        private const val SPLASHDELAY: Long = 4000
-
-    }
 
 }
 
